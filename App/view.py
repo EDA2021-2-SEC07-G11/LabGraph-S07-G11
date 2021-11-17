@@ -31,6 +31,7 @@ import threading
 from App import controller
 from DISClib.ADT import stack
 assert config
+import time
 
 """
 La vista se encarga de la interacción con el usuario.
@@ -135,7 +136,11 @@ def thread_cycle():
         elif int(inputs[0]) == 4:
             msg = "Estación Base: BusStopCode-ServiceNo (Ej: 75009-10): "
             initialStation = input(msg)
+            start_time = time.process_time()
             optionFour(cont, initialStation)
+            stop_time = time.process_time()
+            elapsed_time_mseg = (stop_time - start_time)*1000
+            print("Tiempo de ejecución: "+str(elapsed_time_mseg))
 
         elif int(inputs[0]) == 5:
             destStation = input("Estación destino (Ej: 15151-10): ")
@@ -143,7 +148,11 @@ def thread_cycle():
 
         elif int(inputs[0]) == 6:
             destStation = input("Estación destino (Ej: 15151-10): ")
+            start_time = time.process_time()
             optionSix(cont, destStation)
+            stop_time = time.process_time()
+            elapsed_time_mseg = (stop_time - start_time)*1000
+            print("Tiempo de ejecución: "+str(elapsed_time_mseg))
 
         elif int(inputs[0]) == 7:
             optionSeven(cont)
